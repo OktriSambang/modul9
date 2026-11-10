@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE TAB ABOUT ME</title>
+
+</head>
+
+
+<body>
+
+    <!-- HEADER: Identitas -->
+    <header>
+        <h1>ONE TAB ABOUT ME</h1>
+
+        <figure>
+            <img src="foto.jpeg" alt="Foto Profil" width="150">
+            <figcaption>Clareta Oktriani Sambang(Oktri)</figcaption>
+        </figure>
+
+        <nav>
+            <ul>
+                <li><a href="#tentang">Tentang Saya</a></li>
+                <li><a href="#portofolio">Portofolio dan Pengalaman</a></li>
+                <li><a href="#kontak">Kontak dan Media Sosial</a></li>
+            </ul>
+            <!-- Tombol untuk mengaktifkan/menonaktifkan mode gelap -->
+            <button id="btn-tema" type="button" aria-pressed="false">Mode Gelap</button>
+            <!-- Tombol untuk menyembunyikan/menampilkan section kontak  -->
+            <button id="btn-kontak" type="button" aria-controls="kontak" aria-expanded="true">Sembunyikan
+                Kontak</button>
+            <!-- Tombol untuk menambah satu item pengalaman baru  -->
+            <button id="btn-tambah" type="button" aria-controls="form-pengalaman" aria-expanded="false">Tambah
+                Pengalaman</button>
+        </nav>
+    </header>
+
+    <hr>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- SECTION 1: Biodata Diri -->
+        <section id="tentang">
+            <h2>Tentang Saya</h2>
+
+            <p>
+                Hallo prend!, kenalin aku Oktri, salah satu mahasiswi
+                Program Studi Informatika di Universitas Sanata Dharma Yogyakarta.
+            </p>
+
+            <table>
+                <caption>Biodata Diri</caption>
+
+                <tbody>
+                    <tr>
+                        <td>Nama Lengkap</td>
+                        <td>:</td>
+                        <td>Clareta Oktriani Sambang</td>
+                    </tr>
+
+                    <tr>
+                        <td>Nama Panggilan</td>
+                        <td>:</td>
+                        <td>Oktri</td>
+                    </tr>
+
+                    <tr>
+                        <td>NIM</td>
+                        <td>:</td>
+                        <td>255314015</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tempat, Tanggal Lahir</td>
+                        <td>:</td>
+                        <td>Ruteng, 24 Oktober 2007</td>
+                    </tr>
+
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>:</td>
+                        <td>Perempuan</td>
+                    </tr>
+
+                    <tr>
+                        <td>Agama</td>
+                        <td>:</td>
+                        <td>Katolik</td>
+                    </tr>
+
+                    <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td>Jl. Paingan Maguwoharjo</td>
+                    </tr>
+
+                    <tr>
+                        <td>Program Studi</td>
+                        <td>:</td>
+                        <td>Informatika</td>
+                    </tr>
+
+                    <tr>
+                        <td>Universitas</td>
+                        <td>:</td>
+                        <td>Universitas Sanata Dharma</td>
+                    </tr>
+
+                    <tr>
+                        <td>Hobi</td>
+                        <td>:</td>
+                        <td>Menggambar, mendengarkan Spotify, membaca komik</td>
+                    </tr>
+
+                    <tr>
+                        <td>Motto</td>
+                        <td>:</td>
+                        <td>
+                            <em>
+                                "Jangan pernah berhenti belajar, karena hidup tidak pernah berhenti mengajarkan"
+                            </em>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- SECTION 2: Portofolio & Pengalaman Organisasi -->
+        <section id="portofolio" class="daftar-artikel">
+            <h2>Pengalaman Organisasi dan Kepanitiaan</h2>
+
+            <!-- Modul 9 · B.7: Indikator loading spinner (bukan teks polos) -->
+            <div id="loading" class="loading-container tersembunyi">
+                <div class="spinner"></div>
+                <p>Memuat data dari API...</p>
+            </div>
+
+            <!-- Modul 9 · B.5: Pesan error fetch ditampilkan di sini -->
+            <div id="pesan-error-fetch" class="pesan-error tersembunyi" role="alert"></div>
+
+            <form id="form-pengalaman" class="form-pengalaman tersembunyi">
+                <label for="input-judul">Judul Pengalaman</label>
+                <input type="text" id="input-judul" name="judul" required>
+
+                <label for="input-periode">Periode</label>
+                <input type="text" id="input-periode" name="periode" placeholder="Contoh: Januari 2026 - Maret 2026"
+                    required>
+
+                <label for="input-deskripsi">Deskripsi</label>
+                <textarea id="input-deskripsi" name="deskripsi" required></textarea>
+
+                <button type="submit">Simpan</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ASIDE: Informasi Tambahan -->
+        <aside id="kontak">
+            <h2>Kontak Dan Informasi Tambahan</h2>
+
+            <p>Kalau pengen tau lebih tentang aku, kepo aja di link di bawah ini :</p>
+
+            <ul>
+                <li>Email:<a href="mailto:oktri.claret@gmail.com">
+                        oktri.claret@gmail.com
+                    </a>
+                </li>
+
+                <li>Instagram:
+                    <a href="https://www.instagram.com/oktri_smbng?stkn=N2EweWtmNHY5a2pv" target="_blank"
+                        rel="noopener noreferrer"> @oktri_smbng </a>
+                </li>
+            </ul>
+
+            <!-- Modul 9 · B.6: Data Pengguna Dinamis dari API /users/1 -->
+            <div id="profil-penulis-api" class="profil-api-box">
+                <h3>Data Penulis API (JSONPlaceholder)</h3>
+                <p><strong>Nama:</strong> <span id="nama-penulis">Memuat...</span></p>
+                <p><strong>Email:</strong> <span id="email-penulis">Memuat...</span></p>
+            </div>
+        </aside>
+
+        <!-- SECTION 3: Komentar Pengunjung (Modul 9 · B.7: komentar awal dari API) -->
+        <section id="komentar">
+            <h2>Tinggalkan komentar</h2>
+
+            <!-- Modul 9 · B.7: Loading komentar dari API -->
+            <div id="loading-komentar" class="loading-container tersembunyi">
+                <div class="spinner spinner-kecil"></div>
+                <p>Memuat komentar dari API...</p>
+            </div>
+
+            <form id="form-komentar" novalidate>
+                <div id="pesan-error-komentar" class="pesan-error tersembunyi" role="alert"></div>
+
+                <label for="input-nama">Nama Anda</label>
+                <input type="text" id="input-nama" name="nama" placeholder="Masukkan nama Anda (min. 3 karakter)"
+                    required>
+
+                <label for="input-pesan">Pesan / Komentar</label>
+                <textarea id="input-pesan" name="pesan" placeholder="Tulis komentar... (min. 5 karakter)"
+                    required></textarea>
+                <div class="grup-tombol-komentar">
+                    <button type="submit" id="btn-kirim-komentar">Kirim Komentar</button>
+                    <button type="button" id="btn-batal-edit" class="btn-sekunder tersembunyi">Batal Edit</button>
+                    <button type="button" id="btn-hapus-semua-komentar" class="btn-bahaya">Hapus Semua Komentar</button>
+                </div>
+            </form>
+
+            <h3>Daftar Komentar</h3>
+            <ul id="daftar-komentar"></ul>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- FOOTER: Penutup & Hak Cipta -->
+    <footer>
+        <p>
+            &copy; 2026 Oktri - Pemrograman Berbasis Web, Universitas Sanata Dharma.
+        </p>
+        <!-- Tombol Reset Data -->
+        <button id="btn-reset" type="button">Reset Semua Data</button>
+    </footer>
+
+    <!--Tombol Kembali ke Atas -->
+    <button id="btn-kembali-ke-atas" type="button" class="tersembunyi" title="Kembali ke atas">&#8679; Atas</button>
+
+    <!-- Menghubungkan file JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

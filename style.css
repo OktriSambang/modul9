@@ -1,0 +1,1086 @@
+.artikel-hover {
+  background-color: #eef4fb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: whitesmoke;
+  color: #222;
+}
+
+input:invalid {
+  border-color: #d9534f;
+}
+
+input :valid {
+  border-color: #5cb85c;
+}
+
+/* Mengubah tampilan halaman ke tema gelap saat tombol diklik */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+/* Mengubah warna background section/kartu agar teks tetap terbaca di mode gelap */
+body.dark-mode section#tentang,
+body.dark-mode section#portofolio,
+body.dark-mode .daftar-artikel article,
+body.dark-mode aside {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  border-color: #444;
+}
+
+body.dark-mode .daftar-artikel article.artikel-hover {
+  background-color: #383838;
+}
+
+body.dark-mode section#tentang h2,
+body.dark-mode section#portofolio h2,
+body.dark-mode .daftar-artikel article h3,
+body.dark-mode aside h2,
+body.dark-mode table caption {
+  color: #add8e6;
+}
+
+body.dark-mode .daftar-artikel article p:first-of-type {
+  color: #bbb;
+}
+
+body.dark-mode .daftar-artikel article button {
+  background-color: #444;
+  color: #f0f0f0;
+  border-color: #666;
+}
+
+body.dark-mode .daftar-artikel article button:hover {
+  background-color: #a33;
+  border-color: #a33;
+}
+
+body.dark-mode .form-pengalaman {
+  background-color: #333;
+  border-color: #555;
+}
+
+body.dark-mode .form-pengalaman label {
+  color: #add8e6;
+}
+
+body.dark-mode .form-pengalaman input,
+body.dark-mode .form-pengalaman textarea {
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+  border-color: #666;
+}
+
+body.dark-mode .form-pengalaman button[type="submit"] {
+  background-color: #4a7fa8;
+}
+
+body.dark-mode aside ul li a {
+  color: #add8e6;
+}
+
+/* Memastikan teks tabel ikut berubah terang di mode gelap */
+body.dark-mode table {
+  color: #f0f0f0;
+}
+
+body.dark-mode table td {
+  border-bottom-color: #444;
+}
+
+/* B.3 Flexbox pada Header & Nav */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+  background-color: #1f4e78;
+  color: white;
+  gap: 12px;
+}
+
+header h1 {
+  font-size: 1.4rem;
+}
+
+header figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+header figure img {
+  border: 3px solid white;
+  object-fit: cover;
+}
+
+header figure figcaption {
+  font-size: 0.85rem;
+  color: lightblue;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+header nav a:hover {
+  background-color: steelblue;
+}
+
+/* Tombol di header (tema, kontak, tambah) */
+header nav button {
+  cursor: pointer;
+  padding: 6px 12px;
+  margin: 2px 4px 2px 0;
+  border: 1px solid white;
+  border-radius: 6px;
+  background-color: transparent;
+  color: white;
+  font: inherit;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+header nav button:hover {
+  background-color: steelblue;
+}
+
+/* B.4 CSS Grid pada Daftar Artikel */
+/* class "daftar-artikel" diterapkan pada <section id="portofolio"> */
+.daftar-artikel {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* mobile-first: 1 kolom */
+  gap: 20px;
+  padding: 20px;
+  align-content: start;
+}
+
+/* Judul bagian selalu memanjang penuh di atas kartu artikel */
+.daftar-artikel h2 {
+  grid-column: 1 / -1;
+}
+
+/* Kartu pengalaman: flex kolom agar tombol Hapus selalu di bagian bawah */
+.daftar-artikel article {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.daftar-artikel article h3 {
+  color: #1f4e78;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* Paragraf pertama = periode: kecil, tebal sedang, warna abu */
+.daftar-artikel article p:first-of-type {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+  text-align: left;
+  hyphens: none;
+}
+
+/* Paragraf kedua = deskripsi: teks biasa (tidak tebal) */
+.daftar-artikel article p {
+  font-size: 0.95rem;
+  font-weight: normal;
+  text-align: left;
+  /* ganti ke "justify" jika ingin rata kiri-kanan (spasi antar kata bisa renggang) */
+  overflow-wrap: anywhere;
+}
+
+/* Tombol Hapus: di bagian bawah kartu, tidak melebar */
+.daftar-artikel article button {
+  margin-top: auto;
+  align-self: flex-start;
+  cursor: pointer;
+  padding: 6px 14px;
+  border: 1px solid #c0392b;
+  border-radius: 6px;
+  background-color: white;
+  color: #c0392b;
+  font: inherit;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.daftar-artikel article button:hover {
+  background-color: #c0392b;
+  color: white;
+}
+
+/* -------- Form tambah pengalaman -------- */
+/* Form berada di dalam #portofolio dan memanjang penuh di atas kartu */
+.form-pengalaman {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f8fafc;
+}
+
+/* Label di atas kolom isian, tebal dan kecil */
+.form-pengalaman label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f4e78;
+}
+
+/* Jarak antar kelompok label + isian */
+.form-pengalaman label:not(:first-child) {
+  margin-top: 8px;
+}
+
+/* Kolom isian selebar form, tinggi dan bingkai seragam */
+.form-pengalaman input,
+.form-pengalaman textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background-color: white;
+  color: #222;
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+/* Textarea hanya boleh ditarik ke bawah, tidak melebar keluar kartu */
+.form-pengalaman textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-pengalaman input:focus,
+.form-pengalaman textarea:focus {
+  outline: none;
+  border-color: #1f4e78;
+  box-shadow: 0 0 0 3px rgba(31, 78, 120, 0.2);
+}
+
+/* Tombol kirim: biru, rata kiri di bawah form */
+.form-pengalaman button[type="submit"] {
+  align-self: flex-start;
+  margin-top: 12px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1f4e78;
+  color: white;
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-pengalaman button[type="submit"]:hover {
+  background-color: steelblue;
+}
+
+/* -------- B.5 Main & Aside Berdampingan -------- */
+main {
+  display: flex;
+  flex-direction: column;
+  /* section Tentang, Portofolio, dan aside bertumpuk dengan lebar penuh sama */
+  gap: 20px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section#tentang,
+section#portofolio {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+section#tentang h2,
+section#portofolio h2 {
+  color: #1f4e78;
+  margin-bottom: 4px;
+}
+
+section#tentang p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* Tabel biodata */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+table caption {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #1f4e78;
+  text-align: left;
+}
+
+table td {
+  padding: 6px 8px;
+  vertical-align: top;
+  border-bottom: 1px solid gainsboro;
+}
+
+table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+  width: 40%;
+}
+
+table td:nth-child(2) {
+  width: 5%;
+  text-align: center;
+}
+
+/* Aside / Kontak */
+aside {
+  background-color: #f2f2f2;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+aside h2 {
+  color: #1f4e78;
+  margin-bottom: 10px;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside ul li {
+  margin-bottom: 8px;
+}
+
+aside ul li a {
+  color: #1f4e78;
+  text-decoration: none;
+}
+
+aside ul li a:hover {
+  text-decoration: underline;
+}
+
+/* HR styling */
+hr {
+  border: none;
+  border-top: 2px solid lightgray;
+  margin: 0;
+}
+
+/* Garis pemisah di dalam main tidak perlu (sudah dipisahkan kartu) */
+main>hr {
+  display: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 16px 24px;
+  background-color: #1f4e78;
+  color: white;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+
+/* -------- B.6 Media Query Mobile-First -------- */
+
+/* Tablet: >= 768px */
+@media (min-width: 768px) {
+  .daftar-artikel {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 kolom */
+  }
+
+  table td:first-child {
+    width: 35%;
+  }
+}
+
+/* Desktop: >= 992px
+   Dua kolom: kiri = Tentang Saya + Kontak, kanan = Pengalaman Organisasi.
+   Dengan begitu kartu Kontak tidak lagi memanjang kosong. */
+@media (min-width: 992px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "tentang portofolio"
+      "kontak  portofolio";
+    gap: 20px;
+    align-items: start;
+  }
+
+  section#tentang {
+    grid-area: tentang;
+  }
+
+  section#portofolio {
+    grid-area: portofolio;
+    align-self: stretch;
+    /* bingkai memanjang sampai sejajar dengan bagian bawah kolom kiri */
+    grid-template-columns: 1fr;
+    /* kartu pengalaman tersusun satu kolom ke bawah */
+  }
+
+  main>aside {
+    grid-area: kontak;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Menyembunyikan elemen saat tombol diklik (dikendalikan oleh JavaScript) */
+.tersembunyi {
+  display: none !important;
+}
+
+/* =============================================
+   MODUL 5 - EVENT HANDLING & TUGAS MANDIRI
+   ============================================= */
+
+/* B.2 Langkah 1: Efek hover pada artikel */
+.artikel-hover {
+  background-color: #eef4fb !important;
+  transform: translateY(-2px);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.dark-mode .artikel-hover {
+  background-color: #383838 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* B.3 Tombol Like pada kartu pengalaman */
+.daftar-artikel article .aksi-kartu {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.btn-like {
+  cursor: pointer;
+  padding: 6px 14px;
+  border: 1px solid #1f4e78;
+  border-radius: 6px;
+  background-color: white;
+  color: #1f4e78;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-like:hover {
+  background-color: #1f4e78;
+  color: white;
+}
+
+body.dark-mode .btn-like {
+  background-color: #444;
+  color: #add8e6;
+  border-color: #666;
+}
+
+body.dark-mode .btn-like:hover {
+  background-color: #1f4e78;
+  color: white;
+}
+
+/* B.4 & B.7 Section Komentar */
+section#komentar {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+section#komentar h2,
+section#komentar h3 {
+  color: #1f4e78;
+  margin-bottom: 12px;
+}
+
+#form-komentar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  background-color: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+#form-komentar label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f4e78;
+}
+
+#form-komentar input,
+#form-komentar textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.95rem;
+  background-color: white;
+}
+
+#form-komentar textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+#form-komentar input:focus,
+#form-komentar textarea:focus {
+  outline: none;
+  border-color: #1f4e78;
+  box-shadow: 0 0 0 3px rgba(31, 78, 120, 0.2);
+}
+
+.grup-tombol-komentar {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+#btn-kirim-komentar {
+  padding: 8px 18px;
+  background-color: #1f4e78;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+#btn-kirim-komentar:hover {
+  background-color: steelblue;
+}
+
+.btn-bahaya {
+  padding: 8px 14px;
+  background-color: white;
+  color: #c0392b;
+  border: 1px solid #c0392b;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.btn-bahaya:hover {
+  background-color: #c0392b;
+  color: white;
+}
+
+/* B.7 Tugas Mandiri: Pesan Error Validasi di Halaman (Bukan Alert) */
+.pesan-error {
+  padding: 10px 14px;
+  background-color: #fde8e8;
+  color: #c0392b;
+  border: 1px solid #f5c2c7;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Daftar Komentar & Tombol Hapus tiap item */
+#daftar-komentar {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#daftar-komentar li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #f8fafc;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#daftar-komentar li .konten-komentar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#daftar-komentar li .nama-pengirim {
+  font-weight: bold;
+  color: #1f4e78;
+  font-size: 0.95rem;
+}
+
+#daftar-komentar li .teks-pesan {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+#daftar-komentar li button.btn-hapus-komentar {
+  padding: 6px 12px;
+  border: 1px solid #c0392b;
+  border-radius: 6px;
+  background-color: white;
+  color: #c0392b;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+#daftar-komentar li button.btn-hapus-komentar:hover {
+  background-color: #c0392b;
+  color: white;
+}
+
+/* Mode gelap untuk elemen Modul 5 */
+body.dark-mode section#komentar {
+  background-color: #2c2c2c;
+  border-color: #444;
+}
+
+body.dark-mode section#komentar h2,
+body.dark-mode section#komentar h3 {
+  color: #add8e6;
+}
+
+body.dark-mode #form-komentar {
+  background-color: #333;
+  border-color: #555;
+}
+
+body.dark-mode #form-komentar label {
+  color: #add8e6;
+}
+
+body.dark-mode #form-komentar input,
+body.dark-mode #form-komentar textarea {
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+  border-color: #666;
+}
+
+body.dark-mode #form-komentar input:focus,
+body.dark-mode #form-komentar textarea:focus {
+  border-color: #add8e6;
+  box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.25);
+}
+
+body.dark-mode #daftar-komentar li {
+  background-color: #222;
+  border-color: #444;
+}
+
+body.dark-mode #daftar-komentar li .nama-pengirim {
+  color: #add8e6;
+}
+
+body.dark-mode #daftar-komentar li .teks-pesan {
+  color: #e0e0e0;
+}
+
+body.dark-mode #daftar-komentar li button.btn-hapus-komentar {
+  background-color: #333;
+  color: #ff8080;
+  border-color: #a33;
+}
+
+body.dark-mode #daftar-komentar li button.btn-hapus-komentar:hover {
+  background-color: #a33;
+  color: white;
+}
+
+/* B.7 Tugas Mandiri: Tombol Kembali ke Atas */
+#btn-kembali-ke-atas {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 10px 18px;
+  background-color: #1f4e78;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#btn-kembali-ke-atas:hover {
+  background-color: steelblue;
+  transform: translateY(-3px);
+}
+
+/* ===== Modul 5 · B.6 — Pesan error per field ===== */
+.pesan-error {
+  color: #d9534f;
+  font-size: 0.85em;
+  display: block;
+  min-height: 1em;
+}
+
+/* ===== Modul 4 · B.2 — Efek hover artikel ===== */
+.artikel-hover {
+  background-color: #eef4fb;
+}
+
+/* ===== Modul 3 · B.3 — Tema gelap ===== */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+}
+
+body.dark-mode article,
+body.dark-mode aside,
+body.dark-mode #komentar input,
+body.dark-mode #komentar textarea,
+body.dark-mode #form-daftar input {
+  background: #222;
+  color: #f2f2f2;
+}
+
+body.dark-mode button {
+  background: #333;
+  color: #f2f2f2;
+  border-color: #666;
+}
+
+body.dark-mode .artikel-hover {
+  background-color: #2a3340;
+}
+
+/* Modul 3 · B.4 — Sembunyikan elemen    */
+.tersembunyi {
+  display: none;
+}
+
+/*  Modul 7 · B.6 — Tombol reset data tersimpan  */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+#btn-reset {
+  margin-top: 6px;
+  padding: 8px 18px;
+  background-color: #ffffff;
+  color: #c0392b;
+  border: 1.5px solid #c0392b;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+#btn-reset:hover {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+body.dark-mode #btn-reset {
+  background-color: #2c2c2c;
+  color: #ff8080;
+  border-color: #ff8080;
+}
+
+body.dark-mode #btn-reset:hover {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+
+/* ==========================================================================
+   MODUL 9 · B.7 INDIKATOR LOADING SPINNER CSS
+   ========================================================================== */
+
+/* Container loading: flex center dengan gap */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  grid-column: 1 / -1;
+}
+
+.loading-container p {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Spinner: animasi berputar dengan border */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #1f4e78;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Spinner ukuran kecil untuk komentar */
+.spinner-kecil {
+  width: 32px;
+  height: 32px;
+  border-width: 4px;
+}
+
+/* Animasi putar */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animasi teks loading (kedap-kedip) */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Dark mode spinner */
+body.dark-mode .spinner {
+  border-color: #444;
+  border-top-color: #add8e6;
+}
+
+body.dark-mode .loading-container p {
+  color: #aaa;
+}
+
+
+/* ==========================================================================
+   MODUL 9 · B.5 — PESAN ERROR FETCH
+   ========================================================================== */
+
+#pesan-error-fetch {
+  grid-column: 1 / -1;
+  padding: 12px 16px;
+  background-color: #fde8e8;
+  color: #c0392b;
+  border: 1px solid #f5c2c7;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+body.dark-mode #pesan-error-fetch {
+  background-color: #3d1f1f;
+  color: #ff8080;
+  border-color: #5a2d2d;
+}
+
+
+/* ==========================================================================
+   MODUL 9 · B.7 — KOMENTAR DARI API
+   ========================================================================== */
+
+/* Komentar dari API diberi warna border biru agar berbeda dari komentar lokal */
+#daftar-komentar li.komentar-api {
+  border-left: 4px solid #1f4e78;
+  background-color: #f0f5fa;
+}
+
+body.dark-mode #daftar-komentar li.komentar-api {
+  background-color: #1e2a3a;
+  border-left-color: #add8e6;
+}
+
+/* Pesan error pada daftar komentar */
+#daftar-komentar li.komentar-error {
+  color: #c0392b;
+  font-style: italic;
+  border-color: #f5c2c7;
+  background-color: #fde8e8;
+}
+
+body.dark-mode #daftar-komentar li.komentar-error {
+  color: #ff8080;
+  background-color: #3d1f1f;
+  border-color: #5a2d2d;
+}
+
+
+/* Modul 9 · B.6: Box profil penulis API di aside */
+.profil-api-box {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed #bbb;
+  font-size: 0.9rem;
+}
+
+.profil-api-box h3 {
+  font-size: 0.95rem;
+  color: #1f4e78;
+  margin-bottom: 6px;
+}
+
+body.dark-mode .profil-api-box {
+  border-top-color: #555;
+}
+
+body.dark-mode .profil-api-box h3 {
+  color: #add8e6;
+}
+
+/* ==========================================================================
+   MODUL 9 · EDIT KOMENTAR & INDIKATOR LOADING TOMBOL
+   ========================================================================== */
+
+/* Wadah tombol aksi komentar (Edit & Hapus) */
+.wadah-tombol-komentar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Tombol Edit Komentar */
+#daftar-komentar li button.btn-edit-komentar {
+  padding: 6px 12px;
+  border: 1px solid #1f4e78;
+  border-radius: 6px;
+  background-color: white;
+  color: #1f4e78;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+#daftar-komentar li button.btn-edit-komentar:hover {
+  background-color: #1f4e78;
+  color: white;
+}
+
+body.dark-mode #daftar-komentar li button.btn-edit-komentar {
+  background-color: #2c3848;
+  color: #add8e6;
+  border-color: #4a7fa8;
+}
+
+body.dark-mode #daftar-komentar li button.btn-edit-komentar:hover {
+  background-color: #4a7fa8;
+  color: white;
+}
+
+/* Tombol Batal Edit */
+#btn-batal-edit,
+.btn-sekunder {
+  padding: 8px 14px;
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #6c757d;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+#btn-batal-edit:hover,
+.btn-sekunder:hover {
+  background-color: #5a6268;
+}
+
+body.dark-mode #btn-batal-edit,
+body.dark-mode .btn-sekunder {
+  background-color: #495057;
+  border-color: #6c757d;
+}
+
+/* Indikator Loading pada Tombol */
+button:disabled,
+button.btn-loading {
+  opacity: 0.65;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  filter: grayscale(20%);
+}
